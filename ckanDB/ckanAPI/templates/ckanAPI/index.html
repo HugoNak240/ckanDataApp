@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'ckanAPI/style.css' %}">
+
+{% avg_ecoli %}
+<ul>
+    <iframe width="700" height="400"
+        src="https://data.ca.gov/dataset/surface-water-fecal-indicator-bacteria-results/resource/1987c159-ce07-47c6-8d4f-4483db6e6460/view/e4f3e578-0adf-4edb-a4ee-eb69906e432a"
+        frameBorder="10"></iframe>
+    {% for sample in avg_ecoli %}
+    <li><a href="/ckanAPI/{{ sample.id }}/">{{ avg_ecoli.average_results_per_analyte }}</a></li>
+    {% endfor %}
+</ul>
+{% avg_ecoli %}
+<!-- {% else %} -->
+<!-- <p>No samples are available.</p>
+{% endif %} -->
